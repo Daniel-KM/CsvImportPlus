@@ -262,7 +262,7 @@ class CsvImportPlus_RowIterator implements SeekableIterator
             $printable = substr(join($this->_columnDelimiter, $row), 0, 30) . '...';
             throw new CsvImportPlus_MissingColumnException("Row beginning with "
                 . "'$printable' does not have the required {$this->_colCount} "
-                . "rows.");
+                . "columns.");
         }
         for ($i = 0; $i < $this->_colCount; $i++)
         {
