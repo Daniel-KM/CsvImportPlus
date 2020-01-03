@@ -737,7 +737,7 @@ class CsvImportPlus_Import extends Omeka_Record_AbstractRecord implements Zend_A
 
                 $this->file_position = $this->getCsvFile()->getIterator()->tell();
                 if ($this->_batchSize && ($index % $this->_batchSize == 0)) {
-                    $this->_log('Completed importing batch of %1$s items. Memory usage %2$s.',
+                    $this->_log('Completed importing batch of %1$s items. Memory usage: %2$s.',
                         array($this->_batchSize, memory_get_usage()));
                     return $this->queue();
                 }
@@ -800,7 +800,7 @@ class CsvImportPlus_Import extends Omeka_Record_AbstractRecord implements Zend_A
                                 'record_id IN (' . $db->quote($recordIds) . ')',
                             ));
                         }
-                        $this->_log('Completed undoing the import of a batch of %1$s items. Memory usage %2$s.',
+                        $this->_log('Completed undoing the import of a batch of %1$s items. Memory usage: %2$s.',
                             array($this->_batchSize, memory_get_usage()));
                         return $this->queueUndo();
                     }
